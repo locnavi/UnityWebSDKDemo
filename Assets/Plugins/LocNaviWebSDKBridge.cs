@@ -17,7 +17,6 @@ public class LocNaviWebSDKBridge
 
     //Android
     public static void test() {
-        //初始化SDK
         var LocNaviWebSDK = new AndroidJavaObject("com.locnavi.websdk.LocNaviWebSDK");
         if (LocNaviWebSDK == null){
             Debug.Log("LocNaviWebSDK 没有加载成功");
@@ -32,8 +31,14 @@ public class LocNaviWebSDKBridge
             return;
         AndroidJavaObject context = joactivety.Call<AndroidJavaObject>("getApplicationContext");
 
-        //打开具体医院
+        //初始化SDK
         LocNaviWebSDK.CallStatic("init", context, "lzDrdAv0y5");
+
+        //打开具体医院
+        LocNaviWebSDK.CallStatic("openMap", context, "m1tTIWHjsq");
+
+        //打开具体医院并引导至相应的Poi位置
+        // LocNaviWebSDK.CallStatic("openMap", context, "m1tTIWHjsq", "poiId");
 
         //打开医院列表
         // LocNaviWebSDK.CallStatic("openMapList", context);
