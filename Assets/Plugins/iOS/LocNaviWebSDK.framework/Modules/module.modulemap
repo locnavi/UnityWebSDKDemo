@@ -1,0 +1,6 @@
+framework module LocNaviWebSDK {
+  umbrella header "LocNaviWebSDK.h"
+
+  export *
+  module * { export * }
+}
