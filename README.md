@@ -42,6 +42,9 @@ Demo中有在Build Settings -> Palyer Settings 中開啟gradle的使用，這樣
 ```C#
         //初始化SDK
         LocNaviWebSDK.CallStatic("init", context, "lzDrdAv0y5");
+        
+        //设置服务器为海外URL，未设置默认URL为m.locnavi.com
+        LocNaviWebSDK.CallStatic("setServerUrl", "https://mo.sailstech.com");
 
         //打開具體醫院
         LocNaviWebSDK.CallStatic("openMap", context, "m1tTIWHjsq");
