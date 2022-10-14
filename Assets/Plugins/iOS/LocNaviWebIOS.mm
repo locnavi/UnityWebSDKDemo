@@ -13,7 +13,9 @@
 extern "C" {
 void _test() {
     [LocNaviMapService setAppKey:@"nqB6HPIU2C"];
-    
+    //设置服务器地址
+    // [LocNaviMapService setServerUrl:@"https://www.test.com"];
+
     LocNaviWebViewController *vc = [[LocNaviWebViewController alloc] initWithMapId:@"HHrzBwF5dY"];
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     UIViewController *rootVC = [[UIApplication sharedApplication].keyWindow rootViewController];

@@ -34,6 +34,9 @@ public class LocNaviWebSDKBridge
         //初始化SDK
         LocNaviWebSDK.CallStatic("init", context, "lzDrdAv0y5");
 
+        //设置服务器地址
+        // LocNaviWebSDK.CallStatic("setServerUrl", "https://www.test.com");
+
         //打开具体医院
         LocNaviWebSDK.CallStatic("openMap", context, "m1tTIWHjsq");
 
