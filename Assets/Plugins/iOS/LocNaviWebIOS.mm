@@ -34,6 +34,16 @@ void _test() {
 
         
     }
+
+    void setServerUrl(const char* url) {
+        if (!url) {
+            NSLog(@"url 不能为空");
+            return;
+        }
+        //初始化SDK
+        NSString *str = [[NSString alloc] initWithCString:url encoding:NSUTF8StringEncoding];
+        [LocNaviMapService setServerUrl:str];
+    }
     void showMapView(const char* mapId) {
         if (!mapId) {
             NSLog(@"mapId 不能为空");
