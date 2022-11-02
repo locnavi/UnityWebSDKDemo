@@ -13,6 +13,8 @@
 extern "C" {
 void _test() {
     [LocNaviMapService setAppKey:@"nqB6HPIU2C"];
+    //设置ibeacon扫描的uuids
+    [LocNaviMapService setUUIDs:@[@"FDA50693-A4E2-4FB1-AFCF-C6EB07647825", @"441651AA-4036-11E6-BEB8-9E71128CAE77"]];
     //设置服务器地址
     // [LocNaviMapService setServerUrl:@"https://www.test.com"];
 
