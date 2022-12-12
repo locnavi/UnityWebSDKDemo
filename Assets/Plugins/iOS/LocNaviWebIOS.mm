@@ -18,6 +18,11 @@ void _test() {
     //设置服务器地址
     // [LocNaviMapService setServerUrl:@"https://www.test.com"];
 
+    //设置定时3秒上传定位数据
+    NSString * uuid = [UIDevice currentDevice].identifierForVendor.UUIDString;
+    [LocNaviMapService setUserId:uuid];
+    [LocNaviMapService setUploadLocationApi:"http://20.205.107.64:82/api/receive/LoraPosition" timeInterval:3000];
+
     LocNaviWebViewController *vc = [[LocNaviWebViewController alloc] initWithMapId:@"HHrzBwF5dY"];
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     UIViewController *rootVC = [[UIApplication sharedApplication].keyWindow rootViewController];
@@ -33,8 +38,7 @@ void _test() {
         [LocNaviMapService setAppKey:str];
     }
     void setUserId(const char* userId) {
-
-        
+        [LocNaviMapService setUserId:userId]; 
     }
 
     void setServerUrl(const char* url) {
@@ -57,7 +61,15 @@ void _test() {
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         UIViewController *rootVC = [[UIApplication sharedApplication].keyWindow rootViewController];
         [rootVC presentViewController:vc animated:YES completion:nil];
-}
+    }
+    //定时上传定位数据到指定的api
+    void setUploadLocationApi(const char* api, int timeInterval) {
+        if (![LocNaviMapService sharedInstance].userId) {
+            NSString * uuid = [UIDevice currentDevice].identifierForVendor.UUIDString;
+            [LocNaviMapService setUserId:uuid];
+        }
+        [LocNaviMapService setUploadLocationApi:api timeInterval:timeInterval];
+    }
 
     
 }
